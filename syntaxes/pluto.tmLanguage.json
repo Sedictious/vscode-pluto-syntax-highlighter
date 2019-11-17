@@ -1,0 +1,133 @@
+{
+	"name": "PLUTO",
+	"patterns": [
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#comment_block"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#types"
+		}
+	],
+	"repository": {
+		"constants": {
+			"patterns": [
+				{
+					"name" : "constant.character.boolean.pluto",
+					"match": "\\b((TRUE)|(FALSE))\\b"
+				},
+				{
+					"name": "constant.numeric.time_constant.absolute.day_form.pluto",
+					"match": "\\b(((?<!\\d)(?!0000)\\d{4}(?!\\d))-(([0-2]\\d{2})|(3[0-5]\\d)|(36[0-6]))T(([0-1]\\d)|(2[0-3])):([0-5]\\d):([0-5]\\d)\\.\\d+Z?)\\b"
+				},
+				{
+					"name": "constant.numeric.time_constant.absolute.day_month_form.pluto",
+					"match": "\\b(((?<!\\d)(?!0000)\\d{4}(?!\\d))-(((0\\d)|(1(0|1|2)))-(([0-2]\\d)|30|31))T(([0-1]\\d)|(2[0-3])):([0-5]\\d):([0-5]\\d)\\.\\d+Z?)\\b"
+				},
+				{
+					"name": "constant.numeric.time_constant.relative.standard_form.pluto",
+					"match": "(\\-|\\+)?\\b(\\d+:(([0-1]\\d)|(2[0-3])):([0-5]\\d):([0-5]\\d)(\\.\\d+)?Z?)\\b"
+				},
+				{
+					"name": "constant.numeric.time_constant.relative.optional_components_form.pluto",
+					"match": "(\\-|\\+)?\\b(((\\d+d(\\d+h)?(\\d+min)?(\\d+(\\.\\d+)?s)?)|(\\d+h(\\d+min)?(\\d+(\\.\\d+)?s)?)|(\\d+min(\\d+(\\.\\d+)?s)?)(\\d+(\\.\\d+)?s))Z?)\\b"
+				},
+				{
+					"name": "constant.numeric.integer.pluto",
+					"match": "(\\-|\\+)?(\\b\\d+(\\.\\d+)?( )?(e(\\-|\\+)?\\d+)?(((?<R>((([YZEPTGMkh]|da)?([trB]|Bd))|(([dcmunpfazy])?(L|degC|rad|deg|arc(min|sec)|sr|Np))|((([YZEPTGMkh]|da)|[dcmunpfazy])?([mgsAKNJWCVFSTH]|mol|Sv|Wb|cd|Hz|Pa|bar|eV|Ohm|lm|lx|Bq|Gy|bit))|((Ei|Pi|Ti|Gi|Mi|Ki)?(B|bit))|(AU|pc|u|min|h|d|dB))(\\^(((\\-)?\\d+)|(\\((\\-)?\\d+\\/\\d+\\))))?|\\(\\g<R>\\)(\\^(((\\-)?\\d+)|(\\((\\-)?\\d+\\/\\d+\\))))?)\\.)*(?<P>((([YZEPTGMkh]|da)?([trB]|Bd))|(([dcmunpfazy])?(L|degC|rad|deg|arc(min|sec)|sr|Np))|((([YZEPTGMkh]|da)|[dcmunpfazy])?([mgsAKNJWCVFSTH]|mol|Sv|Wb|cd|Hz|Pa|bar|eV|Ohm|lm|lx|Bq|Gy|bit))|((Ei|Pi|Ti|Gi|Mi|Ki)?(B|bit))|(AU|pc|u|min|h|d|dB))(\\^(((\\-)?\\d+)|(\\((\\-)?\\d+\\/\\d+\\))))?|\\(\\g<P>\\)(\\^(((\\-)?\\d+)|(\\((\\-)?\\d+\\/\\d+\\))))?)(\\/(?<G>((([YZEPTGMkh]|da)?([trB]|Bd))|(([dcmunpfazy])?(L|degC|rad|deg|arc(min|sec)|sr|Np))|((([YZEPTGMkh]|da)|[dcmunpfazy])?([mgsAKNJWCVFSTH]|mol|Sv|Wb|cd|Hz|Pa|bar|eV|Ohm|lm|lx|Bq|Gy|bit))|((Ei|Pi|Ti|Gi|Mi|Ki)?(B|bit))|(AU|pc|u|min|h|d|dB))(\\^(((\\-)?\\d+)|(\\((\\-)?\\d+\\/\\d+\\))))?|\\(\\g<G>\\)(\\^(((\\-)?\\d+)|(\\((\\-)?\\d+\\/\\d+\\))))?))?)?)\\b"
+				},
+				{
+					"name": "constant.numeric.integer_brackets.pluto",
+					"match": "\\[(\\-|\\+)?(\\b\\d+(\\.\\d+)?( )?(e(\\-|\\+)?\\d+)?(((?<R>((([YZEPTGMkh]|da)?([trB]|Bd))|(([dcmunpfazy])?(L|degC|rad|deg|arc(min|sec)|sr|Np))|((([YZEPTGMkh]|da)|[dcmunpfazy])?([mgsAKNJWCVFSTH]|mol|Sv|Wb|cd|Hz|Pa|bar|eV|Ohm|lm|lx|Bq|Gy|bit))|((Ei|Pi|Ti|Gi|Mi|Ki)?(B|bit))|(AU|pc|u|min|h|d|dB))(\\^(((\\-)?\\d+)|(\\((\\-)?\\d+\\/\\d+\\))))?|\\(\\g<R>\\)(\\^(((\\-)?\\d+)|(\\((\\-)?\\d+\\/\\d+\\))))?)\\.)*(?<P>((([YZEPTGMkh]|da)?([trB]|Bd))|(([dcmunpfazy])?(L|degC|rad|deg|arc(min|sec)|sr|Np))|((([YZEPTGMkh]|da)|[dcmunpfazy])?([mgsAKNJWCVFSTH]|mol|Sv|Wb|cd|Hz|Pa|bar|eV|Ohm|lm|lx|Bq|Gy|bit))|((Ei|Pi|Ti|Gi|Mi|Ki)?(B|bit))|(AU|pc|u|min|h|d|dB))(\\^(((\\-)?\\d+)|(\\((\\-)?\\d+\\/\\d+\\))))?|\\(\\g<P>\\)(\\^(((\\-)?\\d+)|(\\((\\-)?\\d+\\/\\d+\\))))?)(\\/(?<G>((([YZEPTGMkh]|da)?([trB]|Bd))|(([dcmunpfazy])?(L|degC|rad|deg|arc(min|sec)|sr|Np))|((([YZEPTGMkh]|da)|[dcmunpfazy])?([mgsAKNJWCVFSTH]|mol|Sv|Wb|cd|Hz|Pa|bar|eV|Ohm|lm|lx|Bq|Gy|bit))|((Ei|Pi|Ti|Gi|Mi|Ki)?(B|bit))|(AU|pc|u|min|h|d|dB))(\\^(((\\-)?\\d+)|(\\((\\-)?\\d+\\/\\d+\\))))?|\\(\\g<G>\\)(\\^(((\\-)?\\d+)|(\\((\\-)?\\d+\\/\\d+\\))))?))?)?)\\b\\]"
+				},
+				{
+					"name": "constant.numeric.integer.hex.pluto",
+					"match": "\\b(0x[0-9A-F]+)\\b"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name" : "keyword.other.procedure.pluto",
+					"match": "\\b((in (the context of)|(parallel))|(until (one completes)|(all complete))|(initiate( and confirm)?)|(inform user))\\b"
+				},
+				{
+					"name" : "keyword.other.structs.pluto",
+					"match": "\\b((timeout)|(save context)|(refer)|(wait)|(preconditions)|(context)|(confirmation)|(watchdog)|(main)|(step)|(watchdog)|(procedure)|(declare)|(parallel))\\b"
+				},
+				{
+					"name" : "keyword.other.cont.pluto",
+					"match": "\\b((get)|(log)|(raise event)|(resume)|(abort)|(restart)|(ask user)|(continue)|(terminate))\\b"
+				},
+				{
+					"name" : "keyword.other.conf.pluto",
+					"match": "\\b(((not )?confirmed)|(aborted))\\b"
+				},
+				{
+					"name" : "keyword.control.pluto",
+					"match": "\\b((in)|(case)|(set)|(do)|(end)|(repeat)|(is)|(otherwise)|(with)|(for)|(if)|(while)|(then)|(else))\\b"
+				},
+				{
+					"name" : "keyword.control.operator.pluto",
+					"match": "\\b((to)|(by)|(until)|(or)|(of)|(between)|(and)|(within))\\b"
+				},
+				{
+					"name" : "keyword.control.operator.log.pluto",
+					"match": "\\b((AND)|(X?OR)|(NOT))\\b"
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name" : "storage.type.property.pluto",
+					"match": "\\b((event)|(preconditions)|(activity)|(parameter)|(reporting data)|(system element)|(variable)|(predefined value set)|(activity statement)|(argument)|(record)|(array))\\b"
+				},
+				{
+					"name" : "storage.type.general.pluto",
+					"match": "\\b((Boolean)|((un)?signed integer)|((absolute)|(relative) time)|(real)|(string))\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.pluto",
+			"begin": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "string.quoted.double.begin.pluto"
+				}
+			},
+			"end": "\"",
+			"endCaptures": {
+				"0": {
+					"name": "string.quoted.double.end.pluto"
+				}
+			}
+		},
+		"comment_block": {
+			"name": "comment.block.pluto",
+			"begin": "/\\*",
+			"beginCaptures": {
+				"0": {
+					"name": "comment.block.begin.pluto"
+				}
+			},
+			"end": "\\*/",
+			"endCaptures": {
+				"0": {
+					"name": "comment.block.end.pluto"
+				}
+			}
+		}
+	},
+	"scopeName": "source.pluto"
+}

@@ -1,0 +1,26 @@
+{
+    "name": "pluto-syntax-highlighter",
+    "displayName": "PLUTO Syntax Highlighter",
+    "description": "Syntax highlighting for PLUTO",
+    "version": "0.0.1",
+    "publisher": "Sedictious",
+    "engines": {
+        "vscode": "^1.39.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "pluto",
+            "aliases": ["PLUTO", "pluto"],
+            "extensions": ["pluto"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "pluto",
+            "scopeName": "source.pluto",
+            "path": "./syntaxes/pluto.tmLanguage.json"
+        }]
+    }
+}
